@@ -1,16 +1,43 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-
 const { mongoose } = require('./database/mongoose');
+let Parser = require('rss-parser');
+let parser = new Parser();
+const puppeteer = require('puppeteer');
+// require('events').EventEmitter.defaultMaxListeners = 30;
+
+let { scrape } = require('./newsScraper/newsScraper');
 require('./models/news');
 
-const app = express();
-const PORT = 3000;
+(async () => {
+    try {
+        let feed = await parser.parseURL('https://pitchfork.com/rss/news/');
+        let browser = await puppeteer.launch();
 
-app.set('view engine', 'pug');
-app.use(bodyParser.json());
-require('./routes/getNews')(app);
-
-app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}`);
-});
+        for (let i = 0; i < 2; i++) {
+            browser
+                .newPage()
+                .then(page => {
+                    page.goto(feed.items[i].link, {
+                        timeout: 120000,
+                        waitUntil: 'networkidle0'
+                    })
+                        .then(() => {
+                            return page.content();
+                        })
+                        .then(html => {
+                            return scrape(html);
+                        })
+                        .then(content => {
+                            console.log(content);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+        }
+    } catch (e) {
+        console.log(e);
+    }
+})();
