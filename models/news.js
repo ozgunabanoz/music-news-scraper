@@ -1,7 +1,16 @@
 const mongoose = require('mongoose');
 
 let newsSchema = new mongoose.Schema({
-    article: {
+    title: {
+        type: String,
+        minlength: 1,
+        unique: true // to avoid duplicates
+    },
+    headline: {
+        type: String,
+        minlength: 1
+    },
+    articleText: {
         type: String,
         minlength: 1
     }
