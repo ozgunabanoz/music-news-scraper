@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 require('./routes/apiRoutes')(app);
 
 newsFeedCallOperator(); // first function call independent of setinterval
-setInterval(() => newsFeedCallOperator(), 59 * 60 * 1000); // calling the function every 59 minutes
+setInterval(() => newsFeedCallOperator(), 20 * 60 * 1000); // calling the function every 20 minutes
 
 app.listen(process.env.PORT, () => {
     console.log(`Server listening at ${process.env.PORT}`);
