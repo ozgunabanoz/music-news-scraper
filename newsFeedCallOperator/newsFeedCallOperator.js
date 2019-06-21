@@ -12,7 +12,7 @@ const newsFeedCallOperator = async () => {
 
         for (let i = 0; i < 20; i++) {
             // iterating through first 20 items of rss feed
-            let browser = await puppeteer.launch();
+            let browser = await puppeteer.launch({ args: ['--no-sandbox'] });
             let articleObject = {};
             let article = await scrapeCaller(browser, feed.items[i]);
 
