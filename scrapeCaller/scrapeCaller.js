@@ -7,7 +7,7 @@ const scrapeCaller = (browser, item) => {
             .newPage()
             .then(page => {
                 page.goto(item.link, {
-                    timeout: 600000, // if you don't increase timeout length, you can get exceedtime warnings
+                    timeout: 1800000, // if you don't increase timeout length, you can get exceedtime warnings
                     waitUntil: 'networkidle0'
                 })
                     .then(() => {
