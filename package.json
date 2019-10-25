@@ -13,10 +13,10 @@
         "body-parser": "^1.19.0",
         "cheerio": "^1.0.0-rc.3",
         "express": "^4.17.1",
-        "lodash": "^4.17.14",
-        "mongodb": "^3.2.7",
-        "mongoose": "^5.6.0",
-        "puppeteer": "^1.18.0",
-        "rss-parser": "^3.7.1"
+        "lodash": "^4.17.15",
+        "mongodb": "^3.3.3",
+        "mongoose": "^5.7.7",
+        "puppeteer": "^1.20.0",
+        "rss-parser": "^3.7.3"
     }
 }
