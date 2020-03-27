@@ -1,22 +1,22 @@
 {
-    "name": "musicnewswebscraper",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "node server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "cheerio": "^1.0.0-rc.3",
-        "express": "^4.17.1",
-        "lodash": "^4.17.15",
-        "mongodb": "^3.3.3",
-        "mongoose": "^5.7.7",
-        "puppeteer": "^1.20.0",
-        "rss-parser": "^3.7.3"
-    }
+  "name": "musicnewswebscraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.6",
+    "puppeteer": "^2.1.1",
+    "rss-parser": "^3.7.6"
+  }
 }
